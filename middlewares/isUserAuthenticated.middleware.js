@@ -1,12 +1,13 @@
+require("dotenv").config();
 const jwt = require("jsonwebtoken");
 
-const auth = (req, res, next) => {
+const isUserAuthenticated = (req, res, next) => {
   const token = req.headers["authorization"]?.split(" ")[1];
 
   try {
-    if (!token) return res.status(401).json({ message: "Token not found" });
+    if (!token) return res.status(401).json({ message: "Must have login. .." });
 
-    const decoded = jwt.verify(token, "JWT_SECRET");
+    const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
 
     req.body.userId = decoded.userId;
     req.body.username = decoded.username;
@@ -18,4 +19,4 @@ const auth = (req, res, next) => {
   }
 };
 
-module.exports = auth;
+module.exports = isUserAuthenticated;
