@@ -12,3 +12,17 @@ const data_ValidationSchema = z.object({
 
 module.exports = data_ValidationSchema;
 
+
+// const validate = (req, res, next) => {
+//   const result = bodySchema.safeParse(req.body);
+
+//   if (!result.success) {
+//     return res.status(400).json({
+//       status: "error",
+//       message: "Bad request! Validation failed.",
+//       errors: result.error.errors, // Access the validation errors
+//     });
+//   }
+
+//   next();
+// };

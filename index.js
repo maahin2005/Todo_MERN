@@ -48,8 +48,8 @@ app.get("/health", async (req, res) => {
 app.use("/api/user", userRouter);
 app.use("/api/todo", todoRouter);
 
-app.set("view engine", "ejs");
-app.get("/", homeRoutes);
+// app.set("view engine", "ejs");
+// app.get("/", homeRoutes);
 
 // ? errorHanding
 app.use(errorMiddleware);
